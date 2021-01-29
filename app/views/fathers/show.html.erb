@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Avatar</strong><br> 
+  <%= image_tag @father.avatar.url(:thumb) %>
+  <hr>
+
+  <strong>Nome:</strong>   
+  <%= @father.name%><br>
+
+  <strong>E-mail:</strong>   
+  <%= @father.email%><br>
+
+  <strong>CPF:</strong>   
+  <%= @father.cpf%><br>
+
+  <strong>Profissão:</strong>   
+  <%= @father.occupation.description%><br>
+
+
+</p>
+<strong>Filhos:</strong>  
+  <ul>
+      <% @father.children.each do |child|%>
+        <li><%= "#{child.name} - #{getSex(child.sex)}" %></li>
+      <% end %>
+  </ul>
+
+<%= link_to 'Edit', edit_father_path(@father) %> |
+<%= link_to 'Back', fathers_path %>

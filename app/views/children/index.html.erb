@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Children</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Father</th>
+      <th>Age</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @children.each do |child| %>
+      <tr>
+        <td><%= child.name %></td>
+        <td><%= child.sex %></td>
+        <td><%= child.father.name %></td>
+        <td><%= child.age %></td>
+        <td><%= link_to 'Show', child %></td>
+        <td><%= link_to 'Edit', edit_child_path(child) %></td>
+        <td><%= link_to 'Destroy', child, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Child', new_child_path %> |
+<%= link_to 'Back Fathers', fathers_path %>
